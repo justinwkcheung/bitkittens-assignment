@@ -2,16 +2,15 @@ function catsSubmit() {
 
   $.ajax({
     url: 'http://bitkittens.herokuapp.com/cats.json',
-    method: 'GET',
+    method: 'GET'
 
   }).done(function(data) {
     var catsJSON = data.cats
-    var catsID = catsJSON[0].photo
-    $('<img>').attr('src', catsID).attr('alt', "Photo of " + catsJSON[0].name).appendTo('#cat1')
-    var catsID = catsJSON[1].photo
-    $('<img>').attr('src', catsID).attr('alt', "Photo of " + catsJSON[1].name).appendTo('#cat2')
-    var catsID = catsJSON[2].photo
-    $('<img>').attr('src', catsID).attr('alt', "Photo of " + catsJSON[2].name).appendTo('#cat3')
+    for (var i = 0; i < catsJSON.length; i++) {
+    console.log(catsJSON[i].photo);
+    var catsID = catsJSON[i].photo
+    $('<img>').attr('src', catsID).attr('alt', "Photo of " + catsJSON[i].name).appendTo('#cat' + (i+1));
+   };
   });
 };
 
