@@ -9,7 +9,7 @@ function catsSubmit() {
     for (var i = 0; i < catsJSON.length; i++) {
     console.log(catsJSON[i].photo);
     var catsID = catsJSON[i].photo
-    $('<img>').attr('src', catsID).attr('alt', "Photo of " + catsJSON[i].name).appendTo('#cat' + (i+1));
+    $('<img>').attr({'src': catsID, 'alt': "Photo of " + catsJSON[i].name}).appendTo('#cat' + (i+1));
    };
   });
 };
